@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 var articleOne={
     title: 'Article-one | Lakshay Bansal',
-    heading: 'Articcle-one',
+    heading: 'Article-one',
     date: '16 August,2017',
     content: ` <p>
                A website content writer or web content writer specializes in providing relevant content for websites. Every website has a specific target audience and requires different content. Content should contain key words aimed towards                 improving a website's SEO.
