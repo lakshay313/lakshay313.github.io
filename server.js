@@ -4,17 +4,41 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleOne={
-    title: 'Article-one | Lakshay Bansal',
-    heading: 'Article-one',
-    date: '16 August,2017',
-    content: ` <p>
-               A website content writer or web content writer specializes in providing relevant content for websites. Every website has a specific target audience and requires different content. Content should contain key words aimed towards                 improving a website's SEO.
-               </p>    
-               <p>
-               Most story pieces are centered on marketing products or services, though this is not always the case. Some websites are informational only and do not sell a product or service. Informational content aims to educate the reader                with complex information that is easy to understand and retain.
-               </p>`
-               };
+var articles= { 
+'article-one' :{
+ title: 'Article-one | Lakshay Bansal',
+ heading: 'Article-one',
+ date: '16 August,2017',
+ content: ` <p>
+           A website content writer or web content writer specializes in providing relevant content for websites. Every website has a specific target audience and requires different content. Content should contain key words aimed towards                 improving a website's SEO.
+           </p>    
+           <p>
+           Most story pieces are centered on marketing products or services, though this is not always the case. Some websites are informational only and do not sell a product or service. Informational content aims to educate the reader                with complex information that is easy to understand and retain.
+           </p>`
+           },
+'article-two':{
+ title: 'Article-two | Lakshay Bansal',
+ heading: 'Article-two',
+ date: '16 August,2017',
+ content: ` <p>
+           A website content writer or web content writer specializes in providing relevant content for websites. Every website has a specific target audience and requires different content. Content should contain key words aimed towards                 improving a website's SEO.
+           </p>    
+           <p>
+           Most story pieces are centered on marketing products or services, though this is not always the case. Some websites are informational only and do not sell a product or service. Informational content aims to educate the reader                with complex information that is easy to understand and retain.
+           </p>`
+           },
+'article-three':{
+ title: 'Article-three | Lakshay Bansal',
+ heading: 'Article-three',
+ date: '16 August,2017',
+ content: ` <p>
+           A website content writer or web content writer specializes in providing relevant content for websites. Every website has a specific target audience and requires different content. Content should contain key words aimed towards                 improving a website's SEO.
+           </p>    
+           <p>
+           Most story pieces are centered on marketing products or services, though this is not always the case. Some websites are informational only and do not sell a product or service. Informational content aims to educate the reader                with complex information that is easy to understand and retain.
+           </p>`
+           }
+           };
 function createTemplate(data){
     var title=data.title;
     var date=data.date;
@@ -49,8 +73,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req,res) {
-     res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req,res) {
+     res.send(createTemplate(articles[articleName]));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
