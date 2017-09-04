@@ -15,4 +15,4 @@ button.onclick =function() {
     };
     request.open('GET','http://lakhshaybansal199888.imad.hasura-app.io/',true);
     request.send(null);
-}
+};
