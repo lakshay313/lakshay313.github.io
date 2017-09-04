@@ -1,19 +1,18 @@
-console.log('Loaded!');
-//change text using java script:    
-var element=document.getElementById('main-text');
-element.innerHTML="New value";
-//move image:
-var img=document.getElementById('madi');
-/*img.onclick=function(){
-    img.style.marginLeft='100px';
-};*/
-var marginLeft =0;
+var button=document.getElementById('counter');
+var counter=0;
 
-function moveRight(){
-    marginLeft+=1;
-    img.style.marginLeft=marginLeft+'px';
+button.onclick =function() {
+    var request = new XMLHttpsRequest();
     
+    request.onreadystatechange = function(){
+        if (request.readystate ===XMLHttpRequest.Done){
+            if(request.status=== 200){
+            var counter=request.responseText;
+            var span=document.getElementById('count');
+            span.innerHtml =counter.toString();    
+            }
+        }
+    };
+    request.open('GET','http://lakhshaybansal199888.imad.hasura-app.io/',true);
+    request.send(null);
 }
-img.onclick=function(){
-    var interval=setInterval(moveRight,50);
-};
