@@ -1,3 +1,3 @@
-# imad-app
+# Portfolio
 
-IMAD course application.
+Personal portfolio page
